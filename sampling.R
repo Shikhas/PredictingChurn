@@ -1,25 +1,23 @@
 #Load data
-train <- as.tibble(fread('~/Desktop/R_directory/PredictingChurn/data/train.csv'))
-members <- as.tibble(fread('~/Desktop/R_directory/PredictingChurn/data/members_v3.csv', nrows = 1e6))
-trans <- as.tibble(fread('~/Desktop/R_directory/PredictingChurn/data/transactions.csv', nrows = 1e6))
-logs <- as.tibble(fread('~/Desktop/R_directory/PredictingChurn/data/churn_comp_refresh/user_logs_v2.csv', nrows = 5e6))
+load_data <- function(num_memberrows,num_transrows,num_logsrows){
+  train <- as.tibble(fread('~/Desktop/R_directory/PredictingChurn/data/train.csv'))
+  members <- as.tibble(fread('~/Desktop/R_directory/PredictingChurn/data/members_v3.csv', nrows = num_memberrows))
+  trans <- as.tibble(fread('~/Desktop/R_directory/PredictingChurn/data/transactions.csv', nrows = num_transrows))
+  logs <- as.tibble(fread('~/Desktop/R_directory/PredictingChurn/data/user_logs.csv', nrows = num_logsrows))
+}
+
+
 
 #Observe content
-summary(train)
-glimpse(train) #see glimpse or every column in tibble
-summary(members)
-glimpse(members)
-summary(trans)
-glimpse(trans)
-summary(logs)
-glimpse(logs)
+observe_content <- function(x){
+  summary(x)
+  glimpse(x)
+}
 
-#Check missing values 
-sum(is.na(train)) 
-sum(is.na(members))
-sum(is.na(trans))
-sum(is.na(logs))
-
+#Check missing values
+check_missingvals <- function(x){
+  sum(is.na(x)) 
+}
 
 
 
