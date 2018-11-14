@@ -1,7 +1,11 @@
 cat("Welcome to the DPA project.\nRequired libraries are being loaded!\n")
 
+install.packages("tidyverse")
+install.packages("data.table")
+install.packages("ggforce")
+install.packages("ggridges")
+
 # general visualisation
-library('ggplot2') # visualisation
 library('scales') # visualisation
 library('grid') # visualisation
 library('gridExtra') # visualisation
@@ -9,7 +13,6 @@ library('RColorBrewer') # visualisation
 library('corrplot') # visualisation
 
 # general data manipulation
-library('dplyr') # data manipulation
 library('readr') # input/output
 library('data.table') # data manipulation
 library('tidyverse')
