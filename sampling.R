@@ -21,12 +21,12 @@ observe_content <- function(x){
   glimpse(x)
 }
 
-#Check missing values
-check_missingvals <- function(x){
-  sum(is.na(x)) 
-}
+observe_content(train)
+observe_content(members)
+observe_content(trans)
+observe_content(logs)
 
-
+rm("data_list")  # remove not needed variables from workspace
 
 
 
