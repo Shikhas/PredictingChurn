@@ -4,6 +4,7 @@ install.packages("tidyverse")
 install.packages("data.table")
 install.packages("ggforce")
 install.packages("ggridges")
+install.packages("class")
 
 # general visualisation
 library('scales') # visualisation
@@ -13,6 +14,7 @@ library('RColorBrewer') # visualisation
 library('corrplot') # visualisation
 
 # general data manipulation
+library('class')
 library('readr') # input/output
 library('data.table') # data manipulation
 library('tidyverse')
