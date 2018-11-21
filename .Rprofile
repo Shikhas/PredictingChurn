@@ -5,8 +5,10 @@ install.packages("data.table")
 install.packages("ggforce")
 install.packages("ggridges")
 install.packages("class")
+install.packages("import")
 
-# general visualisation
+# general visualisation & cleaning
+library('import')
 library('scales') # visualisation
 library('grid') # visualisation
 library('gridExtra') # visualisation
