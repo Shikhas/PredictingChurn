@@ -7,7 +7,3 @@ observe_content(members)
 observe_content(trans)
 observe_content(logs)
 
-# check_missingvals(train)
-# check_missingvals(members)
-# check_missingvals(trans)
-# check_missingvals(logs)
