@@ -6,6 +6,8 @@ install.packages("ggforce")
 install.packages("ggridges")
 install.packages("class")
 install.packages("import")
+install.packages("FactoMineR")
+install.packages("factoextra")
 
 # general visualisation & cleaning
 library('import')
@@ -31,3 +33,7 @@ library('lubridate') # date and time
 # Extra visualization
 library('ggforce')  # visualisation
 library('ggridges') # visualisation
+
+# pca 
+library('FactoMineR')
+library('factoextra')
