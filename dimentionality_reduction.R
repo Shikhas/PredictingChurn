@@ -19,16 +19,16 @@ eig.val <- get_eigenvalue(res)
 eig.val
 res$eig[1:15,] 
 
---------------
+#####################
 # 15 components have larger eigenvalues than the rest. 
 # We can retain these 15 components and ignore the rest with zero or near zero values.
 
 # Scree plot
 fviz_eig(res, addlabels = TRUE, ylim = c(0, 100))
----------------------
+#####################
 #Using prcomp() instead to extract the principle components into the dataset.
 res.pca = prcomp(sample[,3:22], scale = TRUE)
----------------------
+#####################
 #Just to make sure that the results are same. Can skip this part. 
 # Eigenvalues
 eig <- (res.pca$sdev)^2
