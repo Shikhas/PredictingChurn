@@ -24,7 +24,7 @@ res$eig[1:15,]
 # We can retain these 15 components and ignore the rest with zero or near zero values.
 
 # Scree plot
-fviz_eig(res, addlabels = TRUE, ylim = c(0, 100))
+fviz_eig(res, addlabels = TRUE, ylim = c(0, 20))
 #####################
 #Using prcomp() instead to extract the principle components into the dataset.
 res.pca = prcomp(sample[,3:22], scale = TRUE)
