@@ -8,6 +8,8 @@ install.packages("class")
 install.packages("import")
 install.packages("FactoMineR")
 install.packages("factoextra")
+install.packages("caret")
+install.packages("rpart")
 
 # general visualisation & cleaning
 library('import')
