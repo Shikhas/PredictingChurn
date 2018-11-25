@@ -1,4 +1,3 @@
-setwd("/Users/shama/Assignments/dpa_project/PredictingChurn-master")
 import::here(sample, .from="cleaning.R")
 
 # Convert non-numeric values to numeric

@@ -28,6 +28,8 @@ library('tibble') # data wrangling
 library('tidyr') # data wrangling
 library('stringr') # string manipulation
 library('forcats') # factor manipulation
+library('caret')
+library('rpart')
 
 # Dates
 library('lubridate') # date and time
