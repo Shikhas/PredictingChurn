@@ -8,8 +8,9 @@ install.packages("class")
 install.packages("import")
 install.packages("FactoMineR")
 install.packages("factoextra")
+install.packages("MLmetrics")
+install.packages("ROSE")
 install.packages("caret")
-install.packages("rpart")
 
 # general visualisation & cleaning
 library('import')
@@ -28,8 +29,8 @@ library('tibble') # data wrangling
 library('tidyr') # data wrangling
 library('stringr') # string manipulation
 library('forcats') # factor manipulation
+library('ROSE')
 library('caret')
-library('rpart')
 
 # Dates
 library('lubridate') # date and time
@@ -41,3 +42,6 @@ library('ggridges') # visualisation
 # pca 
 library('FactoMineR')
 library('factoextra')
+
+#metrics
+library('MLmetrics')
