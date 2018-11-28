@@ -1,4 +1,3 @@
-setwd("/Users/shama/Assignments/dpa_project/PredictingChurn-master")
 import::here(final_data, .from="dimensionality_reduction.R")
 
 #Creating partition using createDataPartition method
