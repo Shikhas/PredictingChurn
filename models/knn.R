@@ -1,4 +1,4 @@
-#setwd("/Users/shama/Assignments/dpa_project/PredictingChurn-master")
+setwd("/Users/shama/Assignments/dpa_project/PredictingChurn-master")
 import::here(final_data, .from="dimensionality_reduction.R")
 
 
@@ -23,9 +23,10 @@ knn_fit <- train(sample.is_churn~., data = train_data[i,], method = "knn",
 knn_fit 
 
 #test on train set
-test_pred <- predict(knn_fit, newdata = test_data)
+j <- sample(1:nrow(test_data), 1000)
+test_pred <- predict(knn_fit, newdata = test_data[j,])
 test_pred
 
 #Confusion matrix
-F1_Score(test_data$sample.is_churn,test_pred,positive=NULL)
-confusionMatrix(table(test_pred, test_data$sample.is_churn))
+F1_Score(test_data[j,]$sample.is_churn,test_pred,positive=NULL)
+confusionMatrix(table(test_pred, test_data[j,]$sample.is_churn))

@@ -8,7 +8,7 @@ test_data <- final_data[-index,]
 # change the sample size if you want.
 train_data$sample.is_churn <- as.factor(train_data$sample.is_churn)
 test_data$sample.is_churn <- as.factor(test_data$sample.is_churn)
-i <- sample(1:nrow(train_data), 1000)
+i <- sample(1:nrow(train_data), 5000)
 
 ############################################################
 
@@ -27,12 +27,14 @@ svm_Linear <- train(sample.is_churn~., data = train_data[i,], method = "svmLinea
 svm_Linear
 
 ##Test with the test set
-test_pred <- predict(svm_Linear, newdata = test_data)
+j <- sample(1:nrow(test_data), 1000)
+test_pred <- predict(svm_Linear, newdata = test_data[j,])
 test_pred
 
 ##Confusion matrix
-F1_Score(test_data$sample.is_churn,test_pred,positive=NULL)
-confusionMatrix(test_pred, test_data$sample.is_churn )
+F1_Score(test_data[j,]$sample.is_churn,test_pred,positive=NULL)
+confusionMatrix(test_pred, test_data[j,]$sample.is_churn )
+
 
 #########################################################
 
