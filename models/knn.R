@@ -21,6 +21,7 @@ knn_fit <- train(sample.is_churn~., data = train_data[i,], method = "knn",
                  preProcess = c("center", "scale"),
                  tuneLength = 10)
 knn_fit 
+plot(knn_fit)
 
 #test on train set
 j <- sample(1:nrow(test_data), 1000)
@@ -29,4 +30,5 @@ test_pred
 
 #Confusion matrix
 F1_Score(test_data[j,]$sample.is_churn,test_pred,positive=NULL)
-confusionMatrix(table(test_pred, test_data[j,]$sample.is_churn))
+cm <- confusionMatrix(test_pred, test_data[j,]$sample.is_churn)
+fourfoldplot(cm$table)

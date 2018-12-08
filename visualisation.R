@@ -202,4 +202,6 @@ layout <- matrix(c(1,2),1,2,byrow = TRUE)
 multiplot(p1,p2,layout = layout)
 
 
+ # correralation matrix , A/B testing , go with Feature space 
+
 

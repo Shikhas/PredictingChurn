@@ -24,19 +24,18 @@ svm_Linear <- train(sample.is_churn~., data = train_data[i,], method = "svmLinea
                     trControl=trctrl1,
                     preProcess = c("center", "scale"),
                     tuneLength = 10)
+
 svm_Linear
 
 ##Test with the test set
 j <- sample(1:nrow(test_data), 1000)
 test_pred <- predict(svm_Linear, newdata = test_data[j,])
-test_pred
 
 ##Confusion matrix
+
 F1_Score(test_data[j,]$sample.is_churn,test_pred,positive=NULL)
 confusionMatrix(test_pred, test_data[j,]$sample.is_churn )
 
 
-#########################################################
 
-##Have to try the models with bigger samples.
-##play with the svm parameters(svmRadial, svmPoly)
+
