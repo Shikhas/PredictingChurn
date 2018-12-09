@@ -152,4 +152,5 @@ sample = inner_join(train, members, by= ("msno"="msno")) %>%
   inner_join(trans, by=c("msno"="msno")) %>% 
   inner_join(logs, by=c("msno"="msno"))
 
-
+sample = droplevels(sample)
+sample = distinct(sample)
