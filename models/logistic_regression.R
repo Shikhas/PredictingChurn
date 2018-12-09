@@ -4,7 +4,8 @@ import::here(final_data, .from="dimensionality_reduction.R")
 index <- createDataPartition(final_data$sample.is_churn, p = 0.80, list = FALSE)
 train_data <- final_data[index,]
 test_data <- final_data[-index,]
-
+train_data = train_data %>% select(-sample.msno)
+test_data <- test_data %>% select(-sample.msno)
 # change the sample size if you want.
 train_data$sample.is_churn <- as.factor(train_data$sample.is_churn)
 test_data$sample.is_churn <- as.factor(test_data$sample.is_churn)
@@ -28,7 +29,10 @@ test_pred <- predict(penalisedlogr, newdata = test_data[j,])
 
 #Confusion matrix
 F1_Score(test_data[j,]$sample.is_churn,test_pred,positive=NULL)
-confusionMatrix(test_pred, test_data[j,]$sample.is_churn )
+#confusionMatrix(test_pred, test_data[j,]$sample.is_churn )
+confusionMatrix(as.factor(test_pred), as.factor(test_data[j,]$sample.is_churn))
+cm <- confusionMatrix(as.factor(test_pred), as.factor(test_data[j,]$sample.is_churn))
+fourfoldplot(cm$table)
 
-###### We need to draw plots of all our models 
+
 

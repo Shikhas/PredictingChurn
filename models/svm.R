@@ -5,6 +5,9 @@ index <- createDataPartition(final_data$sample.is_churn, p = 0.80, list = FALSE)
 train_data <- final_data[index,]
 test_data <- final_data[-index,]
 
+
+train_data = train_data %>% select(-sample.msno)
+test_data <- test_data %>% select(-sample.msno)
 # change the sample size if you want.
 train_data$sample.is_churn <- as.factor(train_data$sample.is_churn)
 test_data$sample.is_churn <- as.factor(test_data$sample.is_churn)
@@ -35,6 +38,8 @@ test_pred <- predict(svm_Linear, newdata = test_data[j,])
 
 F1_Score(test_data[j,]$sample.is_churn,test_pred,positive=NULL)
 confusionMatrix(test_pred, test_data[j,]$sample.is_churn )
+cm <- confusionMatrix(test_pred, as.factor(test_data[j,]$sample.is_churn))
+fourfoldplot(cm$table)
 
 
 

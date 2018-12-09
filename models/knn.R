@@ -7,7 +7,9 @@ import::here(final_data, .from="dimensionality_reduction.R")
 index <- createDataPartition(final_data$sample.is_churn, p = 0.80, list = FALSE)
 train_data <- final_data[index,]
 test_data <- final_data[-index,]
-
+# msno = train_data$sample.msno
+train_data = train_data %>% select(-sample.msno)
+test_data <- test_data %>% select(-sample.msno)
 # change the sample size if you want.
 train_data$sample.is_churn <- as.factor(train_data$sample.is_churn)
 i <- sample(1:nrow(train_data), 5000)
@@ -30,5 +32,6 @@ test_pred
 
 #Confusion matrix
 F1_Score(test_data[j,]$sample.is_churn,test_pred,positive=NULL)
-cm <- confusionMatrix(test_pred, test_data[j,]$sample.is_churn)
+confusionMatrix(test_pred, as.factor(test_data[j,]$sample.is_churn))
+cm <- confusionMatrix(test_pred, as.factor(test_data[j,]$sample.is_churn))
 fourfoldplot(cm$table)
